@@ -1,0 +1,96 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/styles.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type="text/javascript" src="js/pwm.js"></script>
+    </head>
+
+    <body>
+    	   <div class="card-panel teal lighten-2" style="margin-top: 0px;">
+      		<span class="white-text">PWM calculator for PIC Microcontrollers</span>
+    		</div>
+    		<div class="container">
+    			<div class="row">
+    				<form class="col s12">
+    					<div class="row">
+    						
+    						<!--input field oscilator frequency-->
+    						<div class="input-field col s8">
+    							<input type="number" placeholder="Oscilator Frequency" class="validate" id="osc-frequency">
+    							<label for="osc-frequency">Oscilator Frequency</label>
+    						</div>
+
+    						<!--Input field select item scale osc frequency-->
+    						<div class="input-field col s4">
+						    	<select id="scale-osc">
+							      <option value="1">Hz</option>
+							      <option value="2">KHz</option>
+							      <option value="3">MHz</option>
+						    	</select>
+						    	<label>Scale</label>
+						  	</div>
+							
+							<!--Input field for designed PWM Frequency-->
+						  	<div class="input-field col s8">
+    							<input type="number" placeholder="Designed PWM Frequency" class="validate" id="pwm-frequency">
+    							<label for="pwm-frequency">Designed PWM Frequency</label>
+    						</div>
+
+    						<!--Input field select item -->
+    						<div class="input-field col s4">
+						    	<select id="scale-pwm">
+							      <option value="1">Hz</option>
+							      <option value="2">KHz</option>
+							      <option value="3">MHz</option>
+						    	</select>
+						    	<label>Scale</label>
+						  	</div>
+							
+							<!--Showing results-->
+			    			<table class="highlight centered">
+					        <thead>
+					          <tr>
+					              <th>Calculated PWM</th>
+					              <th>TMR(X)</th>
+					              <th>PR(X)</th>
+					              <th>Resolution</th>
+					          </tr>
+					        </thead>
+
+					        <tbody>
+					          	<tr>
+					            	<td id="pwm-output">0</td>
+					            	<td id="prescaler">0</td>
+					            	<td id="carga-timer">0</td>
+					            	<td id="resolution">0</td>
+					          		</tr>
+					        </tbody>
+					      </table>
+    					</div>
+    					<div class="col s12">
+    						<a class="waves-effect waves-light waves-block btn" onclick="pwm();">button</a>
+    					</div>
+    				</form>
+    					
+    				</div>
+    			</div>
+       
+      	</div>
+
+      	<!--Import jQuery before materialize.js-->
+      	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      	<script type="text/javascript" src="js/materialize.min.js"></script>
+      	<script type="text/javascript">
+      		$(document).ready(function() {
+			    	$('select').material_select();
+			  	});
+      	</script>
+    </body>
+  </html>
