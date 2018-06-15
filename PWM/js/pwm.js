@@ -56,7 +56,7 @@ function pwm(){
 				else{
 					var pwm = osc_frequency/((PRx+1)*tmrx[i]*4);
 					max_freq[i] = pwm;
-					max_duty[i] = Math.pow(2,ParseInt(max_res[i]);
+					max_duty[i] = Math.pow(2,parseInt(max_res[i]));
 
 					//alert("val: " + max_res[i] + " - pos: " +i);
 				}
