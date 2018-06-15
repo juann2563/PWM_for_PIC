@@ -7,6 +7,7 @@ function pwm(){
 	var scale_frequency = $("#scale-osc option:selected").text();
 	var pwm_frequency = $('#pwm-frequency').val(); // get pwm frequency
 	var scale_pwm = $('#scale-pwm option:selected').text();
+	var max_duty = [0, 0 ,0];
 	// se comprueba la escala en que son ingresados los datos
 	// y se pasan a MHz para trabajar todo en MHz
 	if(scale_frequency == "KHz"){
@@ -55,6 +56,8 @@ function pwm(){
 				else{
 					var pwm = osc_frequency/((PRx+1)*tmrx[i]*4);
 					max_freq[i] = pwm;
+					max_duty[i] = 2*Math.pow(2,max_res[i]);
+
 					//alert("val: " + max_res[i] + " - pos: " +i);
 				}
 				
@@ -66,6 +69,7 @@ function pwm(){
 			$("#prescaler").html("" + tmrx[0]);
 			$("#carga-timer").html("" + carga_timer[0]);
 			$("#resolution").html("" + max_res[0].toFixed(2));
+			$("#max-duty").html("" + max_duty[0].toFixed(2));
 			//alert("pos1");
 		}
 		else if(max_res[1]>max_res[0] && max_res[1]>max_res[2]){
@@ -73,12 +77,14 @@ function pwm(){
 			$("#prescaler").html("" + tmrx[1] );
 			$("#carga-timer").html("" + carga_timer[1]);
 			$("#resolution").html("" + max_res[1].toFixed(2));
+			$("#max-duty").html("" + max_duty[1].toFixed(2));
 		}
 		else{
 			$('#pwm-output').html(""+ max_freq[2]);
 			$("#prescaler").html("" + tmrx[2] );
 			$("#carga-timer").html("" + carga_timer[2]);
 			$("#resolution").html("" + max_res[2].toFixed(2));
+			$("#max-duty").html("" + max_duty[2].toFixed(2));
 		}
 	}
 	
